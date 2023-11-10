@@ -33,15 +33,21 @@ export default {
         .then(() => {
           this.$emit("delete", this.project.id);
         })
-        .catch((err) => console.log(err.message()));
+        .catch((err) => console.log(err));
     },
     completeProject() {
-      fetch(this.api + this.project.id, { method: "PATCH" })
+      fetch(this.api + this.project.id, {
+        method: "PATCH",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          complete: !this.project.complete,
+        }),
+      })
         .then(() => {
           this.$emit("complete", this.project.id);
         })
         .catch((err) => {
-          console.log(err.message());
+          console.log(err);
         });
     },
   },

@@ -29,11 +29,10 @@ export default {
       });
     },
     completeProject(id) {
-      this.projects = this.projects.find((project) => {
-        if (project.id === id) {
-          return (project.complete = !project.complete);
-        }
+      let completeDynamic = this.projects.find((project) => {
+        return project.id === id;
       });
+      completeDynamic.complete = !completeDynamic.complete;
     },
   },
   mounted() {
