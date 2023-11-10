@@ -8,7 +8,9 @@
         <span class="del" title="are you sure delete" @click="deleteProject"
           >delete</span
         >
-        <span class="edi">edit</span>
+        <router-link :to="{ name: 'editproject', params: { id: project.id } }"
+          ><span class="edi">edit</span></router-link
+        >
         <span class="com" @click="completeProject">complete</span>
       </div>
     </div>
@@ -55,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .project {
   background-color: #f3f0f0;
   padding: 20px;
@@ -94,5 +96,8 @@ span:hover {
 }
 .complete {
   border-left-color: green;
+}
+div a {
+  text-decoration: none;
 }
 </style>

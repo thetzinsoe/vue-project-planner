@@ -1,7 +1,16 @@
 <template>
-  <router-view />
+  <div>
+    <NavBar></NavBar>
+    <router-view />
+  </div>
 </template>
 
+<script>
+import NavBar from "../src/components/NavBar.vue";
+export default {
+  components: { NavBar },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -11,5 +20,8 @@
   max-width: 600px;
   /* background-color: rgb(239, 237, 237); */
   margin: 0 auto;
+}
+h2 {
+  color: gray;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    HOME<br />
+    <h2>Home</h2>
     <idv v-for="project in projects" :key="project.id">
       <div v-show="project.id == ''">There is no project here!</div>
       <SingleProject
