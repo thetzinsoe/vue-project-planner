@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <h2>Home</h2>
-    <idv v-for="project in projects" :key="project.id">
-      <div v-show="project.id == ''">There is no project here!</div>
+    <FilterNav @filter="current = $event" :current="current"></FilterNav>
+    <idv v-for="project in filteredProject" :key="project.id">
       <SingleProject
         :project="project"
         @delete="deleteProject"
@@ -14,12 +14,14 @@
 
 <script>
 import SingleProject from "../components/SingleProject.vue";
+import FilterNav from "@/components/FilterNav.vue";
 export default {
   name: "HomeView",
-  components: { SingleProject },
+  components: { SingleProject, FilterNav },
   data() {
     return {
       projects: [],
+      current: "all",
     };
   },
   methods: {
@@ -33,6 +35,21 @@ export default {
         return project.id === id;
       });
       completeDynamic.complete = !completeDynamic.complete;
+    },
+  },
+  computed: {
+    filteredProject() {
+      if (this.current === "complete") {
+        return this.projects.filter((p) => {
+          return p.complete;
+        });
+      }
+      if (this.current === "onGoing") {
+        return this.projects.filter((p) => {
+          return !p.complete;
+        });
+      }
+      return this.projects;
     },
   },
   mounted() {

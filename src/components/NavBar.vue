@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style>
-nav {
+.main-nav {
   text-align: center;
   margin: 40px auto;
 }
@@ -21,7 +21,9 @@ nav {
   text-decoration: none;
   margin: 0 10px;
   color: #999;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 a.router-link-active {
   border-bottom: 1px solid #00ce89;

@@ -6,7 +6,7 @@
       <input type="text" id="title" v-model="title" /><br /><br />
       <label class="label" for="detail">Detail</label>
       <input type="text" id="detail" v-model="detail" /><br />
-      <button>Add</button>
+      <button class="button">Add</button>
     </form>
   </div>
 </template>
@@ -39,9 +39,6 @@ export default {
 };
 </script>
 <style>
-h2 {
-  /* text-align: center; */
-}
 form {
   /* width: 400px; */
   margin: 10px auto;
@@ -70,7 +67,7 @@ input {
   margin-bottom: 20px;
   font-size: 20px;
 }
-button {
+.button {
   display: block;
   margin: 0 auto;
   width: 100px;
@@ -80,7 +77,7 @@ button {
   padding: 10px;
   border: none;
 }
-button:hover {
+.button:hover {
   background-color: rgb(194, 191, 191);
   color: black;
 }

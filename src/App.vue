@@ -24,4 +24,7 @@ export default {
 h2 {
   color: gray;
 }
+body {
+  height: 100vh;
+}
 </style>
